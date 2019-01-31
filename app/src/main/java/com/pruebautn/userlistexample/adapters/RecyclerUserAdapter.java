@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class RecyclerUserAdapter extends RecyclerView.Adapter<RecyclerUserAdapter.ViewHolder> {
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         // Elementos del row que utilizamos
         public TextView nameTextView;
         public Button messageButton;
@@ -26,10 +26,14 @@ public class RecyclerUserAdapter extends RecyclerView.Adapter<RecyclerUserAdapte
         public ViewHolder(View itemView) {
             super(itemView);
         }
+
+        @Override
+        public void onClick(View v) {
+            users.get(getAdapterPosition());
+        }
     }
 
     private List<User> users;
-
 
     public RecyclerUserAdapter(List<User> contacts) {
         users = contacts;
